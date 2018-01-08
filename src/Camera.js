@@ -23,17 +23,29 @@ class Camera extends Component {
             canvas.height = video.videoHeight;
             let ctx = canvas.getContext('2d');
             ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-            let img = ctx.createImageData(canvas.width, canvas.height);
+            let img = ctx.getImageData(0, 0, canvas.width, canvas.height);
             console.log(img);
 
-            this.reticleBoxes.forEach((box, i) => {
+            this.reticleBoxes.forEach((box) => {
                 let reticleBox = ReactDOM.findDOMNode(this.refs[box.ref]);
                 const boundingBox = reticleBox.getBoundingClientRect();
-                const x = boundingBox.x - videoX, 
-                    y = boundingBox.y - videoY,
-                    width = boundingBox.width,
-                    height = boundingBox.height;
-                console.log(x, y);
+                const sX = boundingBox.x - videoX, 
+                    sY = boundingBox.y - videoY,
+                    size = boundingBox.width;
+                let avgRGB = [0, 0, 0], total = 0;
+                for (let x = sX; x < sX + size; x += 4) {
+                    for (let y = sY; y < sY + size; y += 4) {
+                        let pos = (x + img.width * y) * 4, data = img.data;
+                        avgRGB[0] += data[pos];
+                        avgRGB[1] += data[pos + 1];
+                        avgRGB[2] += data[pos + 2];
+                        total++;
+                    }
+                }
+                avgRGB[0] /= total;
+                avgRGB[1] /= total;
+                avgRGB[2] /= total;
+                console.log(avgRGB);
             });
         };
     }

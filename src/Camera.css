@@ -15,9 +15,50 @@
     top: 50%;
     left: 50%;
     
-    transform: translate(-50%, -50%);
-
     background-color: black;
     border-radius: 8px;
-    opacity: 0.8;
+    opacity: 0.5;
+}
+
+.snap-button {
+    position: absolute !important;
+    left: 50%;
+    bottom: 20px;
+    transform: translate(-50%, -25%);
+}
+
+.offset-1 {
+    transform: translate(-175%, -175%);
+}
+
+.offset-2 {
+    transform: translate(-175%, -50%);
+}
+
+.offset-3 {
+    transform: translate(-175%, 75%);
+}
+
+.offset-4 {
+    transform: translate(-50%, -175%);
+}
+
+.offset-5 {
+    transform: translate(-50%, -50%);
+}
+
+.offset-6 {
+    transform: translate(-50%, 75%);
+}
+
+.offset-7 {
+    transform: translate(75%, -175%);
+}
+
+.offset-8 {
+    transform: translate(75%, -50%);
+}
+
+.offset-9 {
+    transform: translate(75%, 75%);
 }

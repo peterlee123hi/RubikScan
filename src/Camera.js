@@ -33,15 +33,6 @@ class Camera extends Component {
                     y = boundingBox.y - videoY,
                     width = boundingBox.width,
                     height = boundingBox.height;
-                // TODO: Restructure entire project from PuzzleScan to RubikScan (pain in the dick)
-                // Extract colors here and ask the user for verification
-                // Then pass up the confirmed colors to App
-                // Then visualize the sides with the virtual cube from Google
-                // Then once all sides have been scanned, analyze and post solution
-                // Then restyle everything to look pretty
-                // Then add instructions and improve visualizations
-                // Then double check everything so that it meets standards
-                // Then you're finally done...
                 console.log(x, y);
             });
         };

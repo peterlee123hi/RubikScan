@@ -9,10 +9,19 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.processColorData = this.processColorData.bind(this);
+        this.loadSolver = this.loadSolver.bind(this);
+        this.state = {
+            showSolver: false
+        };
     }
 
     processColorData(faceColors) {
-        console.log(faceColors);
+        this.refs.cube.updateColors(faceColors);
+    }
+
+    loadSolver(cubeColors) {
+        this.setState({ showSolver: true });
+        console.log(cubeColors);
     }
 
     render() {
@@ -27,7 +36,10 @@ class App extends Component {
                             processColorData={ this.processColorData }
                         ></Camera>
                     </div>
-                    <RubiksCube></RubiksCube>
+                    <RubiksCube 
+                        ref="cube"
+                        loadSolver={ this.loadSolver }
+                    ></RubiksCube>
                 </div>
         );
     }

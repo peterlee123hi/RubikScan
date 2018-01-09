@@ -9,7 +9,6 @@ class Camera extends Component {
         super(props);
         this.state = {
             streaming: false,
-            button: 'active',
             r1: 'w',
             r2: 'w',
             r3: 'w',
@@ -30,10 +29,6 @@ class Camera extends Component {
     }
 
     processImage(ev) {
-        this.setState({
-            button: 'deactive'
-        });
-
         const faceColors = this.getFaceColors();
         this.props.processColorData(faceColors);
     }
@@ -117,7 +112,7 @@ class Camera extends Component {
         s = max === 0 ? 0 : d / max;
 
         if (max === min) {
-            h = 0; // achromatic
+            h = 0;
         } else {
             switch (max) {
                 case r: h = (g - b) / d + (g < b ? 6 : 0); break;
@@ -209,7 +204,7 @@ class Camera extends Component {
                     Video stream not available.
             </video>
             { this.state.streaming ? this.reticleBoxes : "" }
-            <Button raised disabled={this.state['button'] === 'deactive'}
+            <Button raised
                 className="snap-button" 
                 onClick={ this.processImage }
                 color="accent">

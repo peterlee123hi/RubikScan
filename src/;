@@ -7,24 +7,12 @@ class Camera extends Component {
         super(props);
         this.state = {
             streaming: false,
-            button: 'active',
-            r1: 'w',
-            r2: 'w',
-            r3: 'w',
-            r4: 'w',
-            r5: 'w',
-            r6: 'w',
-            r7: 'w',
-            r8: 'w',
-            r9: 'w'
+            button: 'active'
         };
 
         this.processImage = this.processImage.bind(this);
-        this.getFaceColors = this.getFaceColors.bind(this);
         this.processImageData = this.processImageData.bind(this);
         this.rgbToHsv = this.rgbToHsv.bind(this);
-        this.classifyColor = this.classifyColor.bind(this);
-        this.updateReticleColor = this.updateReticleColor.bind(this);
     }
 
     processImage(ev) {
@@ -32,11 +20,6 @@ class Camera extends Component {
             button: 'deactive'
         });
 
-        const faceColors = this.getFaceColors();
-        this.props.processColorData(faceColors);
-    }
-
-    getFaceColors() {
         let video = this.refs.video;
         let videoBoundingBox = video.getBoundingClientRect();
         let videoX = videoBoundingBox.x, videoY = videoBoundingBox.y;
@@ -48,10 +31,18 @@ class Camera extends Component {
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
         let img = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        return this.processImageData(img, videoX, videoY);
+        this.processImageData(img, videoX, videoY);
     }
 
     processImageData(img, videoX, videoY) {
+        let colors = {
+            'r': [255, 0, 0],
+            'g': [0, 128, 0],
+            'b': [0, 0, 255],
+            'y': [255, 255, 0],
+            'o': [255, 165, 0],
+            'w': [255, 255, 255]
+        }
         let colorData = []
 
         this.reticleBoxes.forEach((box) => {
@@ -60,46 +51,53 @@ class Camera extends Component {
             const sX = boundingBox.x - videoX, 
                 sY = boundingBox.y - videoY,
                 size = boundingBox.width;
-            let colorOccurrences = {
-                'r': 0,
-                'g': 0,
-                'b': 0,
-                'o': 0,
-                'y': 0,
-                'w': 0,
-                'invalid': 0
-            };
-            for (let x = sX; x < sX + size; x += 2) {
-                for (let y = sY; y < sY + size; y += 2) {
+            let avgRGB = [0, 0, 0], total = 0;
+            for (let x = sX; x < sX + size; x += 4) {
+                for (let y = sY; y < sY + size; y += 4) {
                     let pos = (x + img.width * y) * 4, data = img.data;
-                    let rgb = [0, 0, 0];
-                    rgb[0] = data[pos];
-                    rgb[1] = data[pos + 1];
-                    rgb[2] = data[pos + 2];
-                    colorOccurrences[this.classifyColor(rgb)]++;
+                    avgRGB[0] += data[pos];
+                    avgRGB[1] += data[pos + 1];
+                    avgRGB[2] += data[pos + 2];
+                    total++;
                 }
             }
+            avgRGB[0] /= total;
+            avgRGB[1] /= total;
+            avgRGB[2] /= total;
+            console.log(this.rgbToHsv(avgRGB));
 
-            let maxOcc = -1;
-            let maxColor = 'r';
-            for (let color in colorOccurrences) {
-                if (colorOccurrences.hasOwnProperty(color) && color !== 'invalid') {
-                    if (maxOcc < colorOccurrences[color]) {
-                        maxColor = color;
-                        maxOcc = colorOccurrences[color];
+            let distance = (rgb1, rgb2) => {
+                const hsv1 = this.rgbToHsv(rgb1);
+                const hsv2 = this.rgbToHsv(rgb2);
+                return Math.abs(hsv1[0] - hsv2[0]);
+            };
+
+            let bestDist = -1;
+            let bestColor = 'r';
+            for (let color in colors) {
+                if (colors.hasOwnProperty(color)) {
+                    const colorRGB = colors[color];
+                    const dist = distance(avgRGB, colorRGB);
+
+                    if (bestDist === -1 || dist < bestDist) {
+                        bestDist = dist;
+                        bestColor = color;
                     }
                 }
             }
-            colorData.push(maxColor);
+            colorData.push(bestColor);
         });
 
         let faceColors = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
         for (let i = 0; i < 9; i++) {
             const r = Math.floor(i % 3);
             const c = Math.floor(i / 3);
-            faceColors[r][c] = colorData[i];
+            faceColors[r][c];
         }
-        return faceColors;
+        console.log(faceColors[0]);
+        console.log(faceColors[1]);
+        console.log(faceColors[2]);
+        this.props.processColorData(faceColors);
     }
 
     rgbToHsv(rgb) {
@@ -108,7 +106,8 @@ class Camera extends Component {
         let b = rgb[2] / 255;
 
         const max = Math.max(r, g, b), min = Math.min(r, g, b);
-        let h, s;
+        let h;
+        let s;
         let v = max;
 
         const d = max - min;
@@ -126,25 +125,6 @@ class Camera extends Component {
         }
 
         return [h, s, v];
-    }
-
-    classifyColor(rgb) {
-        let hsv = this.rgbToHsv(rgb);
-        if (60 / 255 <= hsv[1] && hsv[1] <= 255 / 255 && 50 / 255 <= hsv[2] && hsv[2] <= 255 / 255) {
-            if ((0 <= hsv[0] && hsv[0] <= 9 / 180) || (151 / 180 < hsv[0] && hsv[0] <= 1))
-                return 'r';
-            else if (9 / 180 < hsv[0] && hsv[0] <= 15 / 180)
-                return 'o';
-            else if (15 / 180 < hsv[0] && hsv[0] <= 45 / 180)
-                return 'y';
-            else if (45 / 180 < hsv[0] && hsv[0] <= 100 / 180)
-                return 'g';
-            else if (100 / 180 < hsv[0] && hsv[0] <= 151 / 180)
-                return 'b';
-        }
-        if (0 <= hsv[1] && hsv[1] <= 100 / 255 && 100 / 255 <= hsv[2] && hsv[2] <= 255 / 255)
-            return 'w';
-        return 'invalid';
     }
 
     componentDidMount() {
@@ -165,27 +145,6 @@ class Camera extends Component {
                 });
             }
         });
-
-        setInterval(() => {
-            this.updateReticleColor();
-        }, 250);
-    }
-
-    updateReticleColor() {
-        if (this.state.streaming) {
-            let faceColors = this.getFaceColors();
-            this.setState({
-                r1: faceColors[0][2],
-                r2: faceColors[1][2],
-                r3: faceColors[2][2],
-                r4: faceColors[0][1],
-                r5: faceColors[1][1],
-                r6: faceColors[2][1],
-                r7: faceColors[0][0],
-                r8: faceColors[1][0],
-                r9: faceColors[2][0]
-            });
-        }
     }
 
     render() {
@@ -193,8 +152,7 @@ class Camera extends Component {
         for (let i = 1; i <= 9; i++) {
             this.reticleBoxes.push(
                 <div
-                className= { "Camera-reticle-box offset-" + i +
-                    " " + this.state['r' + i]}
+                className= { "Camera-reticle-box offset-" + i }
                 key={ i }
                 ref={ "reticle-box-" + i }
                 />

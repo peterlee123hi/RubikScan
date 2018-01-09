@@ -11,9 +11,8 @@ class App extends Component {
         this.processColorData = this.processColorData.bind(this);
     }
 
-    processColorData(imgSquares) {
-        // Update color data
-        // Display Rubik's analyzer
+    processColorData(faceColors) {
+        console.log('Data is in app.js');
     }
 
     render() {
@@ -23,7 +22,9 @@ class App extends Component {
                         <img src={logo} className="App-logo" alt="logo" />
                         <h1 className="App-title">Rubik Scan</h1>
                     </header>
-                    <Camera></Camera>
+                    <Camera
+                        processColorData={ this.processColorData }
+                    ></Camera>
                 </div>
         );
     }

@@ -5,6 +5,7 @@
 .Camera-video {
     max-width: 100%;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    transform: rotateY(180deg);
 }
 
 .Camera-reticle-box {
@@ -23,24 +24,24 @@
 .snap-button {
     position: absolute !important;
     left: 50%;
-    bottom: 20px;
-    transform: translate(-50%, -25%);
+    bottom: -50px;
+    transform: translateX(-50%);
 }
 
 .offset-1 {
-    transform: translate(-175%, -175%);
+    transform: translate(-250%, -250%);
 }
 
 .offset-2 {
-    transform: translate(-175%, -50%);
+    transform: translate(-250%, -50%);
 }
 
 .offset-3 {
-    transform: translate(-175%, 75%);
+    transform: translate(-250%, 150%);
 }
 
 .offset-4 {
-    transform: translate(-50%, -175%);
+    transform: translate(-50%, -250%);
 }
 
 .offset-5 {
@@ -48,17 +49,41 @@
 }
 
 .offset-6 {
-    transform: translate(-50%, 75%);
+    transform: translate(-50%, 150%);
 }
 
 .offset-7 {
-    transform: translate(75%, -175%);
+    transform: translate(150%, -250%);
 }
 
 .offset-8 {
-    transform: translate(75%, -50%);
+    transform: translate(150%, -50%);
 }
 
 .offset-9 {
-    transform: translate(75%, 75%);
+    transform: translate(150%, 150%);
+}
+
+.r {
+    background-color: red;
+}
+
+.g {
+    background-color: green;
+}
+
+.b {
+    background-color: blue;
+}
+
+.o {
+    background-color: orange;
+}
+
+.y {
+    background-color: yellow;
+}
+
+.w {
+    background-color: white;
 }

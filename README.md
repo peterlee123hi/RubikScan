@@ -12,4 +12,6 @@ This website can solve Rubik's cubes.
 - [ ] Modify styles to make everything look pretty
 - [ ] Add instructions and about Rubik's cubes
 - [ ] Quality check project
+- [ ] Improve color classification.
+- [ ] Add color histograms.
 - [ ] Finish.

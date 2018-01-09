@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Button from 'material-ui/Button';
 
+import './Camera.css';
+
 class Camera extends Component {
     constructor(props) {
         super(props);
@@ -206,12 +208,12 @@ class Camera extends Component {
                 ref="video">
                     Video stream not available.
             </video>
-            { this.reticleBoxes }
+            { this.state.streaming ? this.reticleBoxes : "" }
             <Button raised disabled={this.state['button'] === 'deactive'}
                 className="snap-button" 
                 onClick={ this.processImage }
                 color="accent">
-                    Snap
+                    Confirm
             </Button>
         </div>;
     }

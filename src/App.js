@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import Camera from './Camera.js';
-import './Camera.css';
+import RubiksCube from './RubiksCube/RubiksCube.js';
 
 class App extends Component {
     constructor(props) {
@@ -12,7 +12,7 @@ class App extends Component {
     }
 
     processColorData(faceColors) {
-        console.log('Data is in app.js');
+        console.log(faceColors);
     }
 
     render() {
@@ -22,9 +22,12 @@ class App extends Component {
                         <img src={logo} className="App-logo" alt="logo" />
                         <h1 className="App-title">Rubik Scan</h1>
                     </header>
-                    <Camera
-                        processColorData={ this.processColorData }
-                    ></Camera>
+                    <div className="App-camera-container">
+                        <Camera
+                            processColorData={ this.processColorData }
+                        ></Camera>
+                    </div>
+                    <RubiksCube></RubiksCube>
                 </div>
         );
     }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Button from 'material-ui/Button';
+import Icon from 'material-ui/Icon';
 
 import './Camera.css';
 
@@ -204,11 +205,11 @@ class Camera extends Component {
                     Video stream not available.
             </video>
             { this.state.streaming ? this.reticleBoxes : "" }
-            <Button raised
+            <Button fab
                 className="snap-button" 
                 onClick={ this.processImage }
-                color="accent">
-                    Confirm
+                color="primary">
+                <Icon style={{ fontSize: '36px' }}>add</Icon>
             </Button>
         </div>;
     }

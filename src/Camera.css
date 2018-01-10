@@ -24,7 +24,7 @@
 .snap-button {
     position: absolute !important;
     left: 50%;
-    bottom: -50px;
+    bottom: -68px;
     transform: translateX(-50%);
 }
 

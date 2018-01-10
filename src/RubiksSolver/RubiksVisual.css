@@ -30,7 +30,7 @@
     padding: 0;
     width: 100%;
     height: 100%;
-    background: #111;
+    background: #FFF;
 }
 
 .face.front { transform: translateZ(80px); }
@@ -50,14 +50,14 @@
     padding: 0;
 }
 
-.sticker.tl { border-radius: 0 0 15% 0; margin-right: 0.5%;}
-.sticker.tc { border-radius: 0 0 15% 15%;  margin-right: 0.5%;}
+.sticker.tl { border-radius: 0 0 15% 0; margin-right: 0%;}
+.sticker.tc { border-radius: 0 0 15% 15%;  margin-right: 0%;}
 .sticker.tr { border-radius: 0 0 0 15%;     }
-.sticker.l  { border-radius: 0 15% 15% 0; margin: 0.5% 0;}
-.sticker.c  { border-radius: 15%; margin: 0.5%; }
-.sticker.r  { border-radius: 15% 0 0 15%; margin: 0.5% 0; }
-.sticker.bl { border-radius: 0 15% 0 0;  margin-right: 0.5%;}
-.sticker.bc { border-radius: 15% 15% 0 0;  margin-right: 0.5%; }
+.sticker.l  { border-radius: 0 15% 15% 0; margin: 0% 0;}
+.sticker.c  { border-radius: 15%; margin: 0%; }
+.sticker.r  { border-radius: 15% 0 0 15%; margin: 0% 0; }
+.sticker.bl { border-radius: 0 15% 0 0;  margin-right: 0%;}
+.sticker.bc { border-radius: 15% 15% 0 0;  margin-right: 0%; }
 .sticker.br { border-radius: 15% 0 0 0;     }
 
 .r { background: #C41E3A; }
@@ -65,4 +65,4 @@
 .g { background: #009E60; }
 .b { background: #0051BA; }
 .y { background: #FFD500; }
-.w { background: #FFFFFF; }
+.w { background: #EAEAEA; }

@@ -1,33 +1,31 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+    color: #111;
 }
 
 .App-header {
-  background: linear-gradient(135deg, #225e9e, #712c69);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  height: 150px;
-  padding: 20px;
-  color: white;
+    padding: 20px;
+}
+
+.App-logo {
+    width: 120px;
 }
 
 .App-title {
-  font-size: 1.5em;
+    margin: 0;
+    font-size: 2.4em;
 }
 
 .App-intro {
-  font-size: large;
+    font-size: large;
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 .App-camera-container {
-    padding: 30px 0 80px 0;
+    padding: 30px 0 120px 0;
 }

@@ -33,10 +33,9 @@ class RubiksSolver extends Component {
     }
 
     async requestSolution(cube) {
-        // await Cube.initSolver();
-        // let moves = await cube.solve();
-        // return moves;
-        return '';
+        await Cube.initSolver();
+        let moves = await cube.solve();
+        return moves;
     }
     
     cubeDataToString(cubeData) {

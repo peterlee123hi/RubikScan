@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './assets/cube.jpg';
 import './App.css';
 
 import Camera from './Camera.js';
@@ -25,7 +25,7 @@ class App extends Component {
         return (
                 <div className="App">
                     <header className="App-header">
-                        <img src={logo} className="App-logo" alt="logo" />
+                        <img src={logo} className="App-logo" alt="logo"/>
                         <h1 className="App-title">Rubik Scan</h1>
                     </header>
                     <div className="App-camera-container">

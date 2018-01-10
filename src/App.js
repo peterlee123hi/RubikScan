@@ -29,6 +29,12 @@ class App extends Component {
                             <img src={logo} className="App-logo" alt="logo"/>
                             <h1 className="App-title">Rubik Scan</h1>
                         </header>
+                        <div className="App-intro">
+                            <div className="App-intro-text">
+                                <p>Do you have one of these pieces of shit and need to solve it in a hurry?</p>
+                                <p>Well, great news! Go ahead and scan it here. Then, you can follow the algorithm guide and the bottom if you're new to solving Rubik's cubes and fix your shit!</p>
+                            </div>
+                        </div>
                         <div className="App-camera-container">
                             <Camera
                                 processColorData={ this.processColorData }

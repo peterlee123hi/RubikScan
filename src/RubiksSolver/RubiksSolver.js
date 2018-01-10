@@ -4,8 +4,6 @@ import './RubiksSolver.css';
 import Cube from 'cubejs';
 import 'cubejs/lib/solve.js';
 
-import RubiksVisual from './RubiksVisual.js';
-
 class RubiksSolver extends Component {
     constructor(props) {
         super(props);
@@ -62,10 +60,7 @@ class RubiksSolver extends Component {
     render() {
         return <div className="RubiksSolver">
             { (this.state.status === 'solved' ? 
-                <RubiksVisual cubeData={this.state.cubeData}></RubiksVisual>
-                : "") }
-            { (this.state.status === 'solved' ? 
-                <p>{this.state.solution}</p>
+                <p className="Algorithm">Your algorithm: {this.state.solution}</p>
                 : "") }
         </div>
     }

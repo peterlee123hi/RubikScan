@@ -1,3 +1,13 @@
+.RubiksSolver {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
 p {
+    position: relative;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
     font-size: 1.8em;
 }

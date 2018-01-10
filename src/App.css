@@ -28,6 +28,7 @@
 
 .App-header {
     padding: 20px;
+    padding-top: 40px;
 }
 
 .App-logo {
@@ -50,4 +51,21 @@
 
 .App-camera-container {
     padding: 30px 0 120px 0;
+}
+
+.App-intro {
+    position: relative;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.App-intro-text {
+    display: inline-block;
+    text-align: left;
+}
+
+.App-intro-text p {
+    margin-bottom: 0.4em;
+    font-size: 1.2em;
 }

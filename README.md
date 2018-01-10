@@ -5,13 +5,19 @@ This website can solve Rubik's cubes.
 # TODO
 - [x] Restructure project from Puzzle Scan to Rubik's Scan
     - I've decided to make a separate project for a Sudoku Scanner.
-- [ ] Extract colors in Camera.js and setup user verification
-- [ ] Visual the sides with the virtual cube provided from that one Google art project
-- [ ] After scanning of sides, begin finding solution
-- [ ] Visualize solution
+- [x] Extract colors in Camera.js and setup user verification
+- [x] After scanning of sides, begin finding solution
+- [ ] Visual the sides with the virtual cube and solution animations
+- [ ] Add timeout for solution solver.
+- [ ] Study whether the following requirements are true:
+    - Green must be front, white must be up, and red must be right.
 - [ ] Modify styles to make everything look pretty
-- [ ] Add instructions and about Rubik's cubes
-- [ ] Quality check project
+- [ ] Add instructions with diagrams and about Rubik's cubes
 - [ ] Improve color classification.
-- [ ] Add color histograms.
+- [ ] Improve UX.
+- [ ] Make it work on mobile... :(
 - [ ] Finish.
+
+# Optional TODO
+- [ ] Add color histograms.
+- [ ] Add color palette.

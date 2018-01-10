@@ -127,20 +127,20 @@ class Camera extends Component {
 
     classifyColor(rgb) {
         let hsv = this.rgbToHsv(rgb);
-        if (60 / 255 <= hsv[1] && hsv[1] <= 255 / 255 && 50 / 255 <= hsv[2] && hsv[2] <= 255 / 255) {
-            if ((0 <= hsv[0] && hsv[0] <= 9 / 180) || (151 / 180 < hsv[0] && hsv[0] <= 1))
+        if (0 <= hsv[1] && hsv[1] <= 100 / 255 && 130 / 255 <= hsv[2] && hsv[2] <= 255 / 255)
+            return 'w';
+        if (30 / 255 <= hsv[1] && hsv[1] <= 255 / 255 && 50 / 255 <= hsv[2] && hsv[2] <= 255 / 255) {
+            if ((0 <= hsv[0] && hsv[0] <= 6 / 180) || (151 / 180 < hsv[0] && hsv[0] <= 1))
                 return 'r';
-            else if (9 / 180 < hsv[0] && hsv[0] <= 15 / 180)
+            else if (6 / 180 < hsv[0] && hsv[0] <= 20 / 180)
                 return 'o';
-            else if (15 / 180 < hsv[0] && hsv[0] <= 45 / 180)
+            else if (20 / 180 < hsv[0] && hsv[0] <= 45 / 180)
                 return 'y';
             else if (45 / 180 < hsv[0] && hsv[0] <= 100 / 180)
                 return 'g';
             else if (100 / 180 < hsv[0] && hsv[0] <= 151 / 180)
                 return 'b';
         }
-        if (0 <= hsv[1] && hsv[1] <= 100 / 255 && 100 / 255 <= hsv[2] && hsv[2] <= 255 / 255)
-            return 'w';
         return 'invalid';
     }
 

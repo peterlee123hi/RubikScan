@@ -4,15 +4,13 @@ import './App.css';
 
 import Camera from './Camera.js';
 import RubiksCube from './RubiksCube/RubiksCube.js';
+import RubiksSolver from './RubiksSolver/RubiksSolver.js';
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.processColorData = this.processColorData.bind(this);
         this.loadSolver = this.loadSolver.bind(this);
-        this.state = {
-            showSolver: false
-        };
     }
 
     processColorData(faceColors) {
@@ -20,8 +18,7 @@ class App extends Component {
     }
 
     loadSolver(cubeColors) {
-        this.setState({ showSolver: true });
-        console.log(cubeColors);
+        this.refs.solver.loadCubeData(cubeColors);
     }
 
     render() {
@@ -40,6 +37,7 @@ class App extends Component {
                         ref="cube"
                         loadSolver={ this.loadSolver }
                     ></RubiksCube>
+                    <RubiksSolver ref="solver"></RubiksSolver>
                 </div>
         );
     }

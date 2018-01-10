@@ -4,10 +4,6 @@ import './RubiksSide.css';
 import RubiksSlot from './RubiksSlot.js';
 
 class RubiksSide extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         let colorData = this.props.colorData
         return <div className={ "Rubiks-side " + 

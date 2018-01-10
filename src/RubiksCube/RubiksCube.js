@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import RubiksSide from './RubiksSide.js';
-import './RubiksCube.css';
 
 class RubiksCube extends Component {
     constructor(props) {
@@ -24,13 +23,13 @@ class RubiksCube extends Component {
     updateColors(faceColors) {
         const side = this.state.selected;
         const sideColorData = side.toLowerCase() + 'ColorData';
-        const colorData = new Object();
+        const colorData = {};
         colorData[sideColorData] = faceColors;
         this.setState(colorData);
         this.updateSelectedFace();
 
         let readyToSolve = true;
-        let cubeColors = [];
+        let cubeColors = {};
         this.sides.forEach((side) => {
             let sideColors = this.state[side.toLowerCase() + 'ColorData'];
             if (side === this.state.selected) {
@@ -39,7 +38,7 @@ class RubiksCube extends Component {
             if (sideColors.length === 0) {
                 readyToSolve = false;
             } else {
-                cubeColors.push(sideColors);
+                cubeColors[side.toLowerCase()] = sideColors;
             }
         });
         if (readyToSolve) {
@@ -48,7 +47,6 @@ class RubiksCube extends Component {
     }
 
     updateSelectedFace() {
-        let side = this.state.selected;
         let idx = 0;
         while (this.state.selected !== this.sides[idx]) idx++;
         idx = (idx + 1) % this.sides.length;

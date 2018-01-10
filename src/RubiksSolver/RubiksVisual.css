@@ -50,15 +50,15 @@
     padding: 0;
 }
 
-.sticker.tl { border-radius: 0 0 15% 0; margin-right: 0%;}
-.sticker.tc { border-radius: 0 0 15% 15%;  margin-right: 0%;}
-.sticker.tr { border-radius: 0 0 0 15%;     }
-.sticker.l  { border-radius: 0 15% 15% 0; margin: 0% 0;}
-.sticker.c  { border-radius: 15%; margin: 0%; }
-.sticker.r  { border-radius: 15% 0 0 15%; margin: 0% 0; }
-.sticker.bl { border-radius: 0 15% 0 0;  margin-right: 0%;}
-.sticker.bc { border-radius: 15% 15% 0 0;  margin-right: 0%; }
-.sticker.br { border-radius: 15% 0 0 0;     }
+.sticker.tl { border-radius: 0 0 15% 0; }
+.sticker.tc { border-radius: 0 0 15% 15%; }
+.sticker.tr { border-radius: 0 0 0 15%; }
+.sticker.l  { border-radius: 0 15% 15% 0; }
+.sticker.c  { border-radius: 15%; }
+.sticker.r  { border-radius: 15% 0 0 15%; }
+.sticker.bl { border-radius: 0 15% 0 0; }
+.sticker.bc { border-radius: 15% 15% 0 0; }
+.sticker.br { border-radius: 15% 0 0 0; }
 
 .r { background: #C41E3A; }
 .o { background: #FF5800; }

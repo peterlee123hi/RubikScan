@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "cubejs": "^1.0.3",
+    "cubejs": "git+https://github.com/petr-lee/cubejs.git",
     "material-ui": "^1.0.0-beta.27",
     "material-ui-icons": "^1.0.0-beta.17",
     "react": "^16.2.0",

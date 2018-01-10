@@ -23,18 +23,16 @@ class RubiksSolver extends Component {
         this.setState({
             cubeData: cubeData
         });
-        this.requestSolution(Cube.fromString(str))
-            .then((moves) => {
-                this.setState({
-                    status: 'solved',
-                    solution: moves
-                });
-            });
+        let moves = this.requestSolution(Cube.fromString(str));
+        this.setState({
+            status: 'solved',
+            solution: moves
+        });
     }
 
-    async requestSolution(cube) {
-        await Cube.initSolver();
-        let moves = await cube.solve();
+    requestSolution(cube) {
+        Cube.initSolver();
+        let moves = cube.solve();
         return moves;
     }
     

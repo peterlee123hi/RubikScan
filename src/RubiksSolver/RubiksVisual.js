@@ -3,7 +3,7 @@ import './RubiksVisual.css';
 
 class RubiksVisual extends Component {
     render() {
-        let faces = ['front', 'left', 'right', 'top', 'bottom', 'back'];
+        let faces = ['front', 'left', 'right', 'back', 'top', 'bottom'];
         let stickers = ['tl', 'tc', 'tr', 'l', 'c', 'r', 'bl', 'bc', 'br'];
         let faceBlocks = [];
 

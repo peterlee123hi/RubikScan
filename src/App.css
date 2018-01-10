@@ -1,7 +1,29 @@
 .App {
     text-align: center;
-    font-family: 'Neucha', cursive;
+    font-family: 'Handlee', cursive;
     color: #111;
+    background-image: url('./assets/geometry.png');
+}
+
+.App-container {
+    position: relative;
+    background-color: white;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+@media screen and (max-width: 640px) {
+    .App-container {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1080px) {
+    .App-container {
+        width: 65%;
+    }
 }
 
 .App-header {

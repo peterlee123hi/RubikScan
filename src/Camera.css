@@ -21,6 +21,13 @@
     opacity: 0.5;
 }
 
+@media screen and (max-width: 480px) {
+    .Camera-reticle-box {
+        width: 40px;
+        height: 40px;
+    }
+}
+
 .snap-button {
     position: absolute !important;
     left: 50%;
@@ -29,19 +36,19 @@
 }
 
 .offset-1 {
-    transform: translate(-250%, -250%);
+    transform: translate(-200%, -200%);
 }
 
 .offset-2 {
-    transform: translate(-250%, -50%);
+    transform: translate(-200%, -50%);
 }
 
 .offset-3 {
-    transform: translate(-250%, 150%);
+    transform: translate(-200%, 100%);
 }
 
 .offset-4 {
-    transform: translate(-50%, -250%);
+    transform: translate(-50%, -200%);
 }
 
 .offset-5 {
@@ -49,19 +56,19 @@
 }
 
 .offset-6 {
-    transform: translate(-50%, 150%);
+    transform: translate(-50%, 100%);
 }
 
 .offset-7 {
-    transform: translate(150%, -250%);
+    transform: translate(100%, -200%);
 }
 
 .offset-8 {
-    transform: translate(150%, -50%);
+    transform: translate(100%, -50%);
 }
 
 .offset-9 {
-    transform: translate(150%, 150%);
+    transform: translate(100%, 100%);
 }
 
 .r {

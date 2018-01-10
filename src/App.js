@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './assets/cube.jpg';
+import logo from './assets/cube.png';
 import './App.css';
 
 import Camera from './Camera.js';
@@ -24,20 +24,22 @@ class App extends Component {
     render() {
         return (
                 <div className="App">
-                    <header className="App-header">
-                        <img src={logo} className="App-logo" alt="logo"/>
-                        <h1 className="App-title">Rubik Scan</h1>
-                    </header>
-                    <div className="App-camera-container">
-                        <Camera
-                            processColorData={ this.processColorData }
-                        ></Camera>
+                    <div className="App-container">
+                        <header className="App-header">
+                            <img src={logo} className="App-logo" alt="logo"/>
+                            <h1 className="App-title">Rubik Scan</h1>
+                        </header>
+                        <div className="App-camera-container">
+                            <Camera
+                                processColorData={ this.processColorData }
+                            ></Camera>
+                        </div>
+                        <RubiksCube 
+                            ref="cube"
+                            loadSolver={ this.loadSolver }
+                        ></RubiksCube>
+                        <RubiksSolver ref="solver"></RubiksSolver>
                     </div>
-                    <RubiksCube 
-                        ref="cube"
-                        loadSolver={ this.loadSolver }
-                    ></RubiksCube>
-                    <RubiksSolver ref="solver"></RubiksSolver>
                 </div>
         );
     }

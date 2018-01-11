@@ -10,6 +10,7 @@ class Camera extends Component {
         super(props);
         this.state = {
             streaming: false,
+            webcamError: false,
             r1: 'w',
             r2: 'w',
             r3: 'w',
@@ -155,6 +156,9 @@ class Camera extends Component {
             })
             .catch((err) => {
                 console.log("An error occurred! " + err); 
+                this.setState({
+                    webcamError: true 
+                });
             });
 
         video.addEventListener('canplay', (ev) => {
@@ -162,12 +166,12 @@ class Camera extends Component {
                 this.setState({
                     streaming: true
                 });
+                setInterval(() => {
+                    this.updateReticleColor();
+                }, 250);
             }
         });
 
-        setInterval(() => {
-            this.updateReticleColor();
-        }, 250);
     }
 
     updateReticleColor() {
@@ -200,18 +204,26 @@ class Camera extends Component {
             );
         }
         return <div className="Camera">
-            <video
-                className="Camera-video"
-                ref="video">
-                    Video stream not available.
-            </video>
-            { this.state.streaming ? this.reticleBoxes : "" }
-            <Button fab
-                className="snap-button" 
-                onClick={ this.processImage }
-                color="primary">
-                <Icon style={{ fontSize: '36px' }}>add</Icon>
-            </Button>
+            { this.state.webcamError ?
+            <div className="errorMessage">
+                <p>Sorry, I couldn't find your webcam! Make sure your on HTTPS.</p>
+            </div>
+            :
+            <div>
+                <video
+                    className="Camera-video"
+                    ref="video">
+                        Video stream not available.
+                </video>
+                { this.state.streaming ? this.reticleBoxes : "" }
+                <Button fab
+                    className="snap-button" 
+                    onClick={ this.processImage }
+                    color="primary">
+                    <Icon style={{ fontSize: '36px' }}>add</Icon>
+                </Button>
+            </div>
+            }
         </div>;
     }
 }

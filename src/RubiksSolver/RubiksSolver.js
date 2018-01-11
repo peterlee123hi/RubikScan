@@ -73,7 +73,7 @@ class RubiksSolver extends Component {
                     <p>Give it a shot!</p>
                     : "") }
                 { (this.state.status === 'invalid' ? 
-                    <p className="Algorithm">Sorry, I couldn't find a solution for that cube. :(</p>
+                    <p className="Algorithm bottom">Sorry, I couldn't find a solution for that cube. :(</p>
                     : "") }
                 { (this.state.status === 'invalid' ? 
                     <p className="Algorithm">Make sure that you followed the scanning guidelines as specified above. Otherwise, scramble it a bit and try again!</p>

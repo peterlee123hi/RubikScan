@@ -9,13 +9,11 @@ This website can solve Rubik's cubes.
 - [x] After scanning of sides, begin finding solution
 - [x] Add timeout for solution solver.
 - [x] Modify styles to make everything look pretty
-- [ ] Add the camera guide (green = front, white = top, red = right) and tips (tilt camera if lighting is in the way).
-- [ ] Add algorithm help diagram.
-- [ ] Improve UX.
+- [x] Add the camera guide (green = front, white = top, red = right) and tips (tilt camera if lighting is in the way).
+- [x] Add algorithm help diagram.
+- [x] Improve UX.
 - [ ] Improve color classification.
-- [ ] Fix offsets on smaller screens.
-- [ ] Make it work on mobile... :(
-- [ ] Finish.
+- [x] Fix offsets on smaller screens.
 
 # Optional TODO
 - [ ] Add color histograms.

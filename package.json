@@ -1,7 +1,7 @@
 {
   "name": "puzzle-scan",
   "version": "0.6.0",
-  "homepage": "https://peterlee.tech/RubikScan",
+  "homepage": "https://rubikscan.webcam",
   "private": true,
   "dependencies": {
     "cubejs": "git+https://github.com/petr-lee/cubejs.git",

@@ -1,8 +1,23 @@
 .App {
     text-align: center;
-    font-family: 'Handlee', cursive;
+    font-family: 'Patrick', cursive;
     color: #111;
     background-image: url('./assets/geometry.png');
+}
+
+.App h1, h2, h3 {
+    font-family: 'Patrick Hand SC', cursive;
+}
+
+.App p {
+    font-family: 'Neucha', cursive;
+    font-size: 1.2em;
+    position: relative;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-size: 1.8em;
 }
 
 .App-container {
@@ -32,7 +47,13 @@
 }
 
 .App-logo {
-    width: 120px;
+    width: 35%;
+}
+
+@media screen and (max-width: 480px) {
+    .App-logo {
+        width: 65%;
+    }
 }
 
 .App-title {

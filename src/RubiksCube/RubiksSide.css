@@ -3,9 +3,8 @@
     margin-left: 1.4em;
     margin-bottom: 1.4em;
     padding: 0.2em 1em;
-    border-radius: 4px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    background-color: #ddd;
+    background-color: #dfdfdf;
 
     transition: box-shadow 0.2s ease;
     transition: background-color 0.2s ease;

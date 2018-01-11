@@ -1,0 +1,24 @@
+.AlgoGuide h1 {
+    margin-bottom: 0.1em;
+}
+
+.AlgoGuide p {
+    font-size: 1.4em;
+    margin-bottom: 1.2em;
+}
+
+.Instructions .left {
+    text-align: left;
+}
+
+.Instructions .right {
+    text-align: right;
+}
+
+@media screen and (max-width: 768px) {
+    .Instructions .left,
+    .Instructions .right {
+        text-align: center;
+    }
+}
+

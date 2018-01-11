@@ -1,13 +1,23 @@
 .RubiksSolver {
     padding-top: 2em;
     padding-bottom: 2em;
+    text-align: center;
 }
 
-p {
+.RubiksSolver-container {
     position: relative;
-    width: 90%;
+    width: 80%;
     left: 50%;
     transform: translateX(-50%);
-    margin: 0;
-    font-size: 1.8em;
+    background-color: #eee;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    padding: 1em 1em 1em 1em;
+}
+
+.RubiksSolver-container h1 {
+    margin-top: 0;
+}
+
+.RubiksSolver-container .Algorithm {
+    text-align: left;
 }

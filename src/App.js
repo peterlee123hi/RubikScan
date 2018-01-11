@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import logo from './assets/cube.png';
+import logo from './assets/logo.svg';
 import './App.css';
 
+import Instructions from './Instructions.js';
+import AlgoGuide from './AlgoGuide.js';
 import Camera from './Camera.js';
 import RubiksCube from './RubiksCube/RubiksCube.js';
 import RubiksSolver from './RubiksSolver/RubiksSolver.js';
@@ -27,14 +29,14 @@ class App extends Component {
                     <div className="App-container">
                         <header className="App-header">
                             <img src={logo} className="App-logo" alt="logo"/>
-                            <h1 className="App-title">Rubik Scan</h1>
                         </header>
                         <div className="App-intro">
                             <div className="App-intro-text">
-                                <p>Do you have one of these pieces of shit and need to solve it in a hurry?</p>
-                                <p>Well, great news! Go ahead and scan it here. Then, you can follow the algorithm guide and the bottom if you're new to solving Rubik's cubes and fix your shit!</p>
+                                <p>Do you have one of these pieces of crap and need to solve it in a hurry?</p>
+                                <p>Well, great news! Go ahead and scan it here. Then, you can follow the instructions for the scanner and algorithm guide to fix your cube!</p>
                             </div>
                         </div>
+                        <Instructions />
                         <div className="App-camera-container">
                             <Camera
                                 processColorData={ this.processColorData }
@@ -44,6 +46,7 @@ class App extends Component {
                             ref="cube"
                             loadSolver={ this.loadSolver }
                         ></RubiksCube>
+                        <AlgoGuide />
                         <RubiksSolver ref="solver"></RubiksSolver>
                     </div>
                 </div>

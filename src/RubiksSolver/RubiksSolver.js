@@ -21,11 +21,19 @@ class RubiksSolver extends Component {
         this.setState({
             cubeData: cubeData
         });
-        let moves = this.requestSolution(Cube.fromString(str));
-        this.setState({
-            status: 'solved',
-            solution: moves
-        });
+        let moves = this.requestSolution(Cube.fromString(str)).trim();
+        if (moves === 'invalid') {
+            this.setState({
+                status: 'invalid'
+            });
+        } else {
+            let m = moves.split(' ');
+            this.setState({
+                status: 'solved',
+                solution: m.join(' - '),
+                numMoves: m.length
+            });
+        }
     }
 
     requestSolution(cube) {
@@ -59,9 +67,24 @@ class RubiksSolver extends Component {
 
     render() {
         return <div className="RubiksSolver">
-            { (this.state.status === 'solved' ? 
-                <p className="Algorithm">Your algorithm: {this.state.solution}</p>
-                : "") }
+            <div className="RubiksSolver-container">
+                <h1>Solver</h1>
+                { (this.state.status === 'waiting' ? 
+                    <p>Give it a shot!</p>
+                    : "") }
+                { (this.state.status === 'invalid' ? 
+                    <p className="Algorithm">Sorry, I couldn't find a solution for that cube. :(</p>
+                    : "") }
+                { (this.state.status === 'invalid' ? 
+                    <p className="Algorithm">Make sure that you followed the scanning guidelines as specified above. Otherwise, scramble it a bit and try again!</p>
+                    : "") }
+                { (this.state.status === 'solved' ? 
+                    <p className="Algorithm">Number of Moves: {this.state.numMoves}</p>
+                    : "") }
+                { (this.state.status === 'solved' ? 
+                    <p className="Algorithm">Your algorithm: {this.state.solution}</p>
+                    : "") }
+            </div>
         </div>
     }
 }

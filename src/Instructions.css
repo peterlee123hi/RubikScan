@@ -1,0 +1,17 @@
+.Instructions h1 {
+    margin-bottom: 0.1em;
+}
+
+.Instructions p {
+    font-size: 1.4em;
+    margin-bottom: 1.2em;
+}
+
+.Instructions .guide,
+.Instructions .bottom-color {
+    margin-bottom: 2.4em;
+}
+
+.Instructions .tip {
+    margin-bottom: 0.1em;
+}

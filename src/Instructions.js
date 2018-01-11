@@ -28,11 +28,11 @@ class Instructions extends Component {
                     </Visible>
                     <Col xs={6} sm={6} md={2}>
                         <img className="color" src={front} alt='front'/>
+                        <img className="color" src={back} alt='front'/>
                         <img className="color" src={left} alt='front'/>
                         <img className="color" src={right} alt='front'/>
-                        <img className="color" src={back} alt='front'/>
-                        <img className="color" src={bottom} alt='front'/>
-                        <img className="color bottom-color" src={top} alt='front'/>
+                        <img className="color" src={top} alt='front'/>
+                        <img className="color bottom-color" src={bottom} alt='front'/>
                     </Col>
                 </Row>
             </Container>

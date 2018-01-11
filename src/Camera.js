@@ -38,10 +38,11 @@ class Camera extends Component {
         let video = this.refs.video;
         let videoBoundingBox = video.getBoundingClientRect();
         let videoX = videoBoundingBox.x, videoY = videoBoundingBox.y;
+        let videoWidth = videoBoundingBox.width, videoHeight = videoBoundingBox.height;
 
         let canvas = document.createElement('canvas');
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
+        canvas.width = videoWidth;
+        canvas.height = videoHeight;
         let ctx = canvas.getContext('2d');
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
@@ -55,8 +56,8 @@ class Camera extends Component {
         this.reticleBoxes.forEach((box) => {
             let reticleBox = ReactDOM.findDOMNode(this.refs[box.ref]);
             const boundingBox = reticleBox.getBoundingClientRect();
-            const sX = boundingBox.x - videoX, 
-                sY = boundingBox.y - videoY,
+            const sX = Math.round(boundingBox.x - videoX), 
+                sY = Math.round(boundingBox.y - videoY),
                 size = boundingBox.width;
             let colorOccurrences = {
                 'r': 0,

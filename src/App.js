@@ -7,6 +7,7 @@ import AlgoGuide from './AlgoGuide.js';
 import Camera from './Camera.js';
 import RubiksCube from './RubiksCube/RubiksCube.js';
 import RubiksSolver from './RubiksSolver/RubiksSolver.js';
+import Footer from './Footer.js';
 
 class App extends Component {
     constructor(props) {
@@ -42,12 +43,13 @@ class App extends Component {
                                 processColorData={ this.processColorData }
                             ></Camera>
                         </div>
-                        <RubiksCube 
+                        <RubiksCube
                             ref="cube"
                             loadSolver={ this.loadSolver }
                         ></RubiksCube>
                         <AlgoGuide />
                         <RubiksSolver ref="solver"></RubiksSolver>
+                        <Footer></Footer>
                     </div>
                 </div>
         );
